@@ -1,12 +1,12 @@
 Feature: Login
 
 Scenario: Login com sucesso
-  Given que acesso a pagina de login
-  When preencho credenciais validas
-  And clico em login
-  Then vejo o dashboard
+  Dado que acesso a pagina de login
+  Quando preencho credenciais validas
+  E clico em login
+  Entao vejo o dashboard
 
 Scenario: Login invalido
-  Given que acesso a pagina de login
-  When preencho credenciais invalidas
-  Then vejo mensagem de erro
+  Dado que acesso a pagina de login
+  Quando preencho credenciais invalidas
+  Entao vejo mensagem de erro
