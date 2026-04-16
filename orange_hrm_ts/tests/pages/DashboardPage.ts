@@ -1,9 +1,10 @@
-import { Page, expect } from '@playwright/test';
+import { Page } from '@playwright/test';
+import { waitForHeading } from '../helpers/wait.helper';
 
 export class DashboardPage {
   constructor(private page: Page) {}
 
-  async isLoaded() {
-    await expect(this.page).toHaveURL(/dashboard/);
+  async waitUntilLoaded() {
+    await waitForHeading(this.page, 'Dashboard');
   }
 }

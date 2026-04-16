@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import { waitForHeading } from '../helpers/wait.helper';
 
 export class EmployeePage {
   constructor(private page: Page) {}
@@ -27,14 +28,18 @@ export class EmployeePage {
     await saveButton.click();
   }
 
-async searchByName(name: string) {
-  await this.page
-    .locator('input[placeholder="Type for hints..."]')
-    .first()
-    .fill(name);
-}
+  async searchByName(name: string) {
+    await this.page
+      .locator('input[placeholder="Type for hints..."]')
+      .first()
+      .fill(name);
+  }
 
   async clickSearch() {
     await this.page.getByRole('button', { name: 'Search' }).click();
-  }  
+  }
+
+  async waitUntilLoaded() {
+    await waitForHeading(this.page, 'Personal Details');
+  }
 }

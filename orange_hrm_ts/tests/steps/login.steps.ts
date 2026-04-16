@@ -19,7 +19,7 @@ export async function loginInvalido(page: Page) {
 
 export async function validarDashboard(page: Page) {
   const dash = new DashboardPage(page);
-  await dash.isLoaded();
+  await dash.waitUntilLoaded();
 }
 
 export async function validarErro(page: Page) {

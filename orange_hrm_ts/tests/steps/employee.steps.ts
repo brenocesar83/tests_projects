@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 import { EmployeePage } from '../pages/EmployeePage';
-import { waitForPageLoad } from '../helpers/wait.helper';
+import { waitForHeading } from '../helpers/wait.helper';
 
 export async function criarFuncionario(page: Page) {
   const employee = new EmployeePage(page);
@@ -12,8 +12,7 @@ export async function criarFuncionario(page: Page) {
   await employee.fillFirstName(firstName);
   await employee.fillLastName(lastName);
   await employee.save();
-  
-  await waitForPageLoad(page, 'Personal Details');
+  await employee.waitUntilLoaded();
 
   return `${firstName}`;
 }
