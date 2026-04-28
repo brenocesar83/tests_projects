@@ -30,25 +30,6 @@ Then('devo chegar no carrinho', () => {
 });
 
 Then('preencho os dados de mobilidade', () => {
-
-  // cy.origin('https://loja.vr.com.br', () => {
-
-  //   cy.contains('Vale-transporte')
-  //     .should('be.visible');
-
-  //   cy.get('#produto-mobilidade-quantidade')
-  //     .clear()
-  //     .type('2');
-
-  //   cy.get('#produto-mobilidade-credito-trabalhador')
-  //     .clear()
-  //     .type('10000');
-
-  //   cy.get('#produto-mobilidade-credito-total')
-  //     .invoke('val')
-  //     .should('include', '200');
-
-  // });
   cy.url().should('include', 'loja.vr.com.br');
 
   cy.contains('Vale-transporte')
@@ -67,17 +48,13 @@ Then('preencho os dados de mobilidade', () => {
 });
 
 Then('sigo para contratação', () => {
-
   cy.get('#carrinho-seguir-para-a-compra')
     .should('be.visible')
     .and('not.be.disabled')
     .click();
-
 });
 
 Then('devo ver a tela de CNPJ', () => {
-
-  // garante que navegou corretamente
   cy.url().should('include', 'checkout');
 
   cy.contains('Para começar')
@@ -89,6 +66,5 @@ Then('devo ver a tela de CNPJ', () => {
 
   cy.contains('Voltar')
     .should('be.visible');
-
 });
 

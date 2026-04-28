@@ -29,7 +29,7 @@ class VRPage {
     cy.get('#submitprodutoideal')
       .click({ force: true });
   }
-
+  
 }
 
 export default new VRPage();
