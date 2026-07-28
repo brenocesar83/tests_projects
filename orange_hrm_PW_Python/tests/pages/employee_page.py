@@ -12,14 +12,9 @@ class EmployeePage:
     def fill_employee(self, first, last):
         first_input = self.page.locator('input[name="firstName"]')
         last_input = self.page.locator('input[name="lastName"]')
-
         first_input.fill(first)
         last_input.fill(last)
-
-        # 🔥 MUITO IMPORTANTE
         last_input.press("Tab")
-
-        # 🔥 garante que não tem erro visível
         self.page.locator(".oxd-input-field-error-message").wait_for(state="hidden", timeout=5000)
 
     def set_employee_id(self, emp_id):
@@ -30,12 +25,8 @@ class EmployeePage:
 
     def save(self):
         save_btn = self.page.get_by_role("button", name="Save")
-
         save_btn.wait_for(state="visible")
-
         save_btn.click()
-
-        # 🔥 espera loader sumir (ESSENCIAL nesse sistema)
         self.page.locator(".oxd-form-loader").wait_for(state="hidden", timeout=10000)
 
     def wait_loaded(self):
